@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/servers">Servers</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a [routerLink]="['/users']">Users</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<h3>Paths</h3>
+<ul>
+  <li>Using a slash '/' in front of a path passed to the routerLink directive makes it an absolute path [routerLink]="/servers".</li>
+  <li>Not having the slash [routerLink]="servers" makes it a relative path. That means it will be appended to the current url path.</li>
+  <li>Passing the routerLink directive a path starting with './' also makes it a relative path. [routerLink]="./servers"</li>
+  <li>You can go up a level in a relative path by passing '../'.</li>
+  <li>/servers -> absolute path: always appended to the root domain</li>
+  <li>servers -> relative path: appended to the current address</li>
+  <li>./servers -> relative path: appended to the current address</li>
+  <li>../servers -> relative path: navigate up one directory.</li>
+  <li>Angular supplies you with a directive that applies a desired class to a link when it is active - routerLinkActive="desired-class"</li>
+  <li>You can expand the functionality of the routerLinkActive directive using the routerLinkActiveOptions directive.</li>
+  <li>You can inject Route and ActivatedRoute into your component's constructor to get and set route properties</li>
+  <li>You can register routes with defined parameters in app.module and access then with ActivatedRoute in your components</li>
+  <li>It's VERY IMPORTANT to realize that if you try to navigate to a component you are already displaying, angular will not reload it by default if the parameters in the link change</li>
+  <li>To monitor url parameters that may change, subscribe to the ActiveRoute params observable property.</li>
+</ul>
