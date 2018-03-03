@@ -19,8 +19,9 @@ export class EditServerComponent implements OnInit {
   ngOnInit() {
     // Not reactive. If url changes while component is active, the change
     // will not he reponded to.
-    console.log(this.route.snapshot.queryParams);
-    console.log(this.route.snapshot.fragment);
+    //console.log(this.route.snapshot.queryParams);
+    //console.log(this.route.snapshot.fragment);
+    
     // To keep track of changes, subscribe to the observable properties
     // of the ActivatedRoute object. NOTE we did not add functions to react 
     // to changes here.
