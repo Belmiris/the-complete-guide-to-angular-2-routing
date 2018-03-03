@@ -25,9 +25,5 @@ export class ServerComponent implements OnInit {
             this.server = this.serversService.getServer(1);    
         }
       );
-
-    //console.log(id);
-    //this.server = this.serversService.getServer(id);
   }
-
 }

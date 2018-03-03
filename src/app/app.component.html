@@ -36,4 +36,9 @@
   <li>You can register routes with defined parameters in app.module and access then with ActivatedRoute in your components</li>
   <li>It's VERY IMPORTANT to realize that if you try to navigate to a component you are already displaying, angular will not reload it by default if the parameters in the link change</li>
   <li>To monitor url parameters that may change, subscribe to the ActiveRoute params observable property.</li>
+  <li>Nested Routes: Routes defined in the app.module can be given an array of children</li>
+  <ul>
+    <li>Child routes are relative to their parent routes (remove the path of the parent)</li>
+    <li>Child routes need their own router-outlet which should be in the component 'pointed to' by the parent route.</li>
+  </ul>
 </ul>
