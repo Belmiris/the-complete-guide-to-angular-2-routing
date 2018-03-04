@@ -43,4 +43,10 @@
     <li>You can used queryParamsHandling: 'preserve' in your router.navigate function call to preserve (or merge) query parameters</li>
   </ul>
   <li>Wild Card Routes. You can redirect all invalid urls by using a route with a path of **. MAKE SURE IT IS THE LAST PATH IN THE ARRAY!</li>
+  <ul>
+    <li>WARNING! Paths are matched by prefix. That means '/' is the same as '/somewhere' so you will be sent to whichever route is defined first.</li>
+    <li>To stop this rather silly behavior, use the pathMatch: 'full' property.</li>
+    <li>{{ '{' }} path: '', redirectTo: '/somewhere', pathMatch: 'full' {{ '}' }}</li>
+  </ul>
+
 </ul>
