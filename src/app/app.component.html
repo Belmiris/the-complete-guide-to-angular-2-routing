@@ -66,4 +66,13 @@
       <li>The target component must then know to look in the ActivatedRoute.data collection for the data using the SAME NAME as the on in the routes array (above)</li>
     </ul>
   </ul>
+  <li>Hash Routes - Understanding Location Strategies</li>
+  <ul>
+    <li>To use the default angular routing, the server it runs on must be configured to show the index.html page if a path is not found (404 error)</li>
+    <li>Remember there is no real, physical path to [host]\servers\ and if the server insists on navigating there, angular will never be called</li>
+    <li>In the event that you cannot set up your server to do this, you ca use the old method of angular routing - hash locations</li>
+    <li>Enabling this is super easy. Simply use the following parameter when assigning your routes to your module.</li>
+    <li><code>RouterModule.forRoot(appRoutes, {{ '{' }} useHash: true {{ '}' }})</code></li>
+  </ul>
+
 </ul>
