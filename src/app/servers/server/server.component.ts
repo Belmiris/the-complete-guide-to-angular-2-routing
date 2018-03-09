@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, Data } from '@angular/router';
 
 @Component({
   selector: 'app-server',
@@ -18,20 +18,27 @@ export class ServerComponent implements OnInit {
 
   ngOnInit() {
     this.allowEdit = this.route.snapshot.queryParams['allowEdit'] === '1' ? true : false;
-    const id = +this.route.snapshot.params['id'];
-    this.server = this.serversService.getServer(id);
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.server = this.serversService.getServer(+params['id']);
-        }
-      );
-      this.route.queryParams
-      .subscribe(
-        (params: Params) => {
-          this.allowEdit = params['allowEdit'] === '1' ? true : false;
-        }
-      );
+    this.route.data.subscribe(
+      (data:Data) => {
+        this.server = data['server'];
+      }
+    );
+
+    // We replaced this with a Route Resolver
+    // const id = +this.route.snapshot.params['id'];
+    // this.server = this.serversService.getServer(id);
+    // this.route.params
+    //   .subscribe(
+    //     (params: Params) => {
+    //       this.server = this.serversService.getServer(+params['id']);
+    //     }
+    //   );
+    //   this.route.queryParams
+    //   .subscribe(
+    //     (params: Params) => {
+    //       this.allowEdit = params['allowEdit'] === '1' ? true : false;
+    //     }
+    //   );
   }
 
   onEdit() {

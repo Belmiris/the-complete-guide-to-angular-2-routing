@@ -50,7 +50,20 @@
   </ul>
   <li><h4>Route Guards</h4></li>
   <ul>
-    Introduction: Guards are like the 'are you sure you want to leave' kind of feature. Angular gives an easy way to do this.
+    <li>Introduction: Guards are like the 'are you sure you want to leave' kind of feature. Angular gives an easy way to do this.</li>
+    <li>Passing static data to a route</li>
+    <ul>
+      <li>When you define your route, you can pass static data to the component you are pointing to</li>
+      <li><code>{{ '{' }} path: 'not-found', component: ErrorPageComponent, data: {{ '{' }} message: "Page not found!" {{ '}' }} {{ '}' }}</code></li>
+      <li>Then, in your component, you can retrieve this data.</li>
+      <li><code>this.errorMessage = this.route.snapshot.data['message'];</code></li>
+    </ul>
+    <li>Resolving dynamic data with Resolve Guards</li>
+    <ul>
+      <li>Resolvers are Services that use the angular interface in @angular/router</li>
+      <li>Resolvers allow you to dynamically load the data you want to send your target component</li>
+      <li>The Service is called in the routes array passed to the module with an object defining the data and its name</li>
+      <li>The target component must then know to look in the ActivatedRoute.data collection for the data using the SAME NAME as the on in the routes array (above)</li>
+    </ul>
   </ul>
-  
 </ul>
